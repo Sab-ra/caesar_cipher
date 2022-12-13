@@ -22,6 +22,16 @@ class Caesar
     setup_lookup_tables( alphabet, encrypted_alphabet )
   end
 
+  def setup_lookup_tables( decrypted_alphabet, encrypted_alphabet )
+    @encryption_hash = {}
+    @decryption_hash = {}
+
+    0.upto( decrypted_alphabet.size ) do | index |
+      @encryption_hash[ decrypted_alphabet[ index ]] = encrypted_alphabet[ index ]
+      @decryption_hash[ encrypted_alphabet[ index ]] = decrypted_alphabet[ index ]
+    end
+  end
+
 end
 
 class CodeBreaker
