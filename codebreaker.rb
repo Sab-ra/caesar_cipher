@@ -148,11 +148,12 @@ class CodeBreaker
     end
   end
 
-
+  
   def run
 
     if get_command && get_input_file && get_output_file && get_secret
       process_files
+      true
     else
       false
     end
@@ -161,7 +162,7 @@ end
 
 codebreaker = CodeBreaker.new
 
-if !codebreaker.run
+if codebreaker.run
   puts "All done!"
   puts
 else
