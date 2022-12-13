@@ -9,6 +9,19 @@ puts "Code Breaker will encrypt and decrypt a file of your choice"
 puts
 
 class Caesar
+
+  def initialize( shift )
+    alphabet_lower = 'abcdefghijklmnopqrstuvwxyz'
+    alphabet_upper = alphabet_lower.upcase
+    alphabet = alphabet_lower + alphabet_upper
+
+    index = shift % alphabet.size
+
+    encrypted_alphabet = alphabet[ index..-1 ] + alphabet[ 0...index ]
+
+    setup_lookup_tables( alphabet, encrypted_alphabet )
+  end
+
 end
 
 class CodeBreaker
