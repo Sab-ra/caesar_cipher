@@ -8,6 +8,19 @@ puts
 puts "Code Breaker will encrypt and decrypt a file of your choice"
 puts
 
+class CodeBreaker
+
+  def initialize
+    @input_file = ''
+    @output_file = ''
+    @password = ''
+  end
+
+  def run
+    true
+  end
+end
+
 codebreaker = CodeBreaker.new
 
 if codebreaker.run
