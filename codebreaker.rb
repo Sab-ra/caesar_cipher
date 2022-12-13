@@ -69,6 +69,14 @@ class CodeBreaker
     true
   end
 
+  def get_secret
+
+    puts
+    print "Enter the secret password: "
+
+    @password = gets.chomp
+  end
+
 
   def run
 
