@@ -8,6 +8,9 @@ puts
 puts "Code Breaker will encrypt and decrypt a file of your choice"
 puts
 
+class Caesar
+end
+
 class CodeBreaker
 
   def initialize
