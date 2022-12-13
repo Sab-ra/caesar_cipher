@@ -32,6 +32,34 @@ class Caesar
     end
   end
 
+  def encrypt( string )
+    result = []
+
+    string.each_char do | c |
+      if @encryption_hash[ c ]
+        result << @encryption_hash[ c ]
+      else
+        result << c
+      end
+    end
+
+    result.join
+  end
+
+  def decrypt( string )
+    result = []
+
+    string.each_char do | c |
+      if @decription_hash[ c ]
+        result << @decryption_hash[ c ]
+      else
+        result << c
+      end
+    end
+
+    result.join
+  end
+
 end
 
 class CodeBreaker
