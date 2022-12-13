@@ -20,7 +20,12 @@ class CodeBreaker
   end
 
   def run
-    true
+    
+    if get_command && get_input_file && get_output_file && get_secret
+      process_files
+    else
+      false
+    end
   end
 end
 
