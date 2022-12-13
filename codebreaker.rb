@@ -17,7 +17,7 @@ class Caesar
 
     index = shift % alphabet.size
 
-    encrypted_alphabet = alphabet[ index..-1 ] + alphabet[ 0...index ]
+    encrypted_alphabet = alphabet[ index.. ] + alphabet[ 0...index ]
 
     setup_lookup_tables( alphabet, encrypted_alphabet )
   end
@@ -50,7 +50,7 @@ class Caesar
     result = []
 
     string.each_char do | c |
-      if @decription_hash[ c ]
+      if @decryption_hash[ c ]
         result << @decryption_hash[ c ]
       else
         result << c
@@ -161,7 +161,7 @@ end
 
 codebreaker = CodeBreaker.new
 
-if codebreaker.run
+if !codebreaker.run
   puts "All done!"
   puts
 else
