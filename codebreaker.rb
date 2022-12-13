@@ -50,7 +50,7 @@ class CodeBreaker
       return false
     end
 
-    true
+    @input_file = input_file_directory + '/' + @input_file
   end
 
   def get_output_file( output_file_directory = "./output_files" )
@@ -66,7 +66,7 @@ class CodeBreaker
       return false
     end
 
-    true
+    @output_file = output_file_directory + '/' + @output_file
   end
 
   def get_secret
@@ -75,6 +75,26 @@ class CodeBreaker
     print "Enter the secret password: "
 
     @password = gets.chomp
+  end
+
+  def convert( encoder, string )
+    if @command == 'e'
+      encoder.encrypt( string )
+    else
+      encoder.decrypt( string )
+    end
+  end
+
+  def process_files
+    
+    encoder = Caesar.new( @password.size )
+
+    File.open( @output_file, "w" ) do | output |
+      IO.foreach ( @input_file ) do | line |
+        converted_line = convert( encoder, line )
+        output.puts converted_line
+      end
+    end
   end
 
 
