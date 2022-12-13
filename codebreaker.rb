@@ -39,13 +39,30 @@ class CodeBreaker
 
   def get_input_file( input_file_directory = "./input_files" )
 
+    puts
     print "Enter the name of the input file: "
 
     @input_file = gets.chomp
     
-    if !File.exists?( "#{input_file_directory}/#{ @input_file }" )
+    if !File.exists?( "#{ input_file_directory }/#{ @input_file }" )
       puts
       puts "Ups! Can't find the input file"
+      return false
+    end
+
+    true
+  end
+
+  def get_output_file( output_file_directory = "./output_files" )
+
+    puts
+    print "Enter the name of the output file: "
+
+    @output_file = gets.chomp
+
+    if File.exists?( "#{ output_file_directory }/#{ @output_file }" )
+      puts
+      puts "The output file already exists. Can't overwrite!"
       return false
     end
 
